@@ -1,0 +1,23 @@
+﻿.admin-mask {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 20px 20px 25px;
+    grid-row-gap: 10px;
+}
+
+.admin-mask span {
+    line-height: 1.2;
+}
+
+.admin-mask a {
+    line-height: 1.2;
+}
+
+.admin-mask a {
+    border: 1px solid black;
+}
+
+.admin-mask a:hover {
+    background-color: black;
+    color: white !important;
+}

@@ -1,0 +1,19 @@
+# Ignore Dirs
+.vs
+
+bin
+obj
+
+wwwroot/js
+wwwroot/lib
+wwwroot/images
+
+Secure
+Properties
+
+# Ignore Files
+wwwroot/favicon.ico
+
+OREOWEB*
+
+appsettings*

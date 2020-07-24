@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_Layout";
+
+    ViewData["Title"] = "Administration";
+
+    var _context = (MainDbContext)ViewBag.Context;
+
+    var Oreos = _context.Oreo.ToArray();
+}
+
+<h2>Internal Area</h2>
+
+<div id="file_browser" style="display: none;" class="file-selector">
+    <div>
+        <div class="file-selector-ribbon">
+            <span>Files</span>
+            <a class="a-hover" onclick="closeFileBrowser(-1)">X</a>
+        </div>
+        <div class="file-explorer">
+            <div style="display: grid;">
+                @{
+                    await Html.RenderPartialAsync(
+                        "Partial/LoadingPartial", 
+                        new Loading 
+                        {
+                            DefaultActive = true,
+                            CSSClasses = "grid-center"
+                        });
+                }
+            </div>
+            <iframe src="" style="display: none;"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="card-columns oreo-columns">
+    @foreach (var oreo in Oreos)
+    {
+        await Html.RenderPartialAsync("Partial/OreoPartial", oreo);
+    }
+
+    <div class="card oreo-card oreo-add-data">
+        <a class="a-hover grid-center">+ Create</a>
+    </div>
+</div>

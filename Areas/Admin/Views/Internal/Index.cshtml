@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "_Layout";
+
+    ViewData["Title"] = "Administration";
+    ViewData["LoggedIn"] = false;
+}
+
+<h2>Admin</h2>
+
+@using (Html.BeginForm("Login", "Internal", FormMethod.Post))
+{
+    if (ViewBag.Error)
+    {
+        <style>
+            .admin-mask {
+                --border-in: 1px solid red;
+            }
+        </style>
+    }
+    else
+    {
+        <style>
+            .admin-mask {
+                --border-in: 1px solid black;
+            }
+        </style>
+    }
+
+    <div class="admin-mask">
+        <span>Username:</span>
+        <input id="ausr" name="Username" type="text" style="border: var(--border-in);" />
+
+        <span>Password:</span>
+        <input id="apwd" name="Password" type="password" style="border: var(--border-in);" />
+
+        <a id="alogin" class="a-hover">Login</a>
+    </div>
+    @Html.AntiForgeryToken()
+    <input id="asubmit" type="submit" style="display: none;" />
+}

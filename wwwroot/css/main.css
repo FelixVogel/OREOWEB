@@ -1,0 +1,68 @@
+﻿.oreo-rating {
+    margin-top: 10px;
+}
+
+.oreo-rating-stars {
+    user-select: none;
+    display: grid;
+    grid-template-columns: 100px 40px;
+    grid-template-rows: 20px;
+
+    --star1: linear-gradient(to right, #51acad, #65bebf);
+    --star2: linear-gradient(to right, #65bebf, #79d0d1);
+    --star3: linear-gradient(to right, #79d0d1, #91d8d9);
+    --star4: linear-gradient(to right, #91d8d9, #abeced);
+    --star5: linear-gradient(to right, #abeced, #fff);
+}
+
+.oreo-rating-stars:hover {
+    cursor: pointer;
+    --star1: linear-gradient(to right, #a750cc, #b66bd6);
+    --star2: linear-gradient(to right, #b66bd6, #be7bdb);
+    --star3: linear-gradient(to right, #be7bdb, #ca8ae6);
+    --star4: linear-gradient(to right, #ca8ae6, #d79ef0);
+    --star5: linear-gradient(to right, #d79ef0, #fff);
+}
+
+.oreo-rating-stars-static, .oreo-rating-stars-dynamic {
+    display: grid;
+    grid-template-columns: 20px 20px 20px 20px 20px;
+    grid-template-rows: 20px;
+}
+
+.oreo-rating-stars-dynamic {
+    display: none;
+}
+
+.oreo-rating-stars:hover .oreo-rating-stars-static {
+    display: none;
+}
+
+.oreo-rating-stars:hover .oreo-rating-stars-dynamic {
+    display: grid;
+}
+
+.oreo-rating-stars span {
+    text-align: center;
+    line-height: 1.2;
+}
+
+.oreo-rating-stars-static span[active="true"]:nth-child(1), .oreo-rating-stars-dynamic span[active="true"]:nth-child(1) {
+    background-image: var(--star1);
+}
+
+.oreo-rating-stars-static span[active="true"]:nth-child(2), .oreo-rating-stars-dynamic span[active="true"]:nth-child(2) {
+    background-image: var(--star2);
+}
+
+.oreo-rating-stars-static span[active="true"]:nth-child(3), .oreo-rating-stars-dynamic span[active="true"]:nth-child(3) {
+    background-image: var(--star3);
+}
+
+.oreo-rating-stars-static span[active="true"]:nth-child(4), .oreo-rating-stars-dynamic span[active="true"]:nth-child(4) {
+    background-image: var(--star4);
+}
+
+.oreo-rating-stars-static span[active="true"]:nth-child(5), .oreo-rating-stars-dynamic span[active="true"]:nth-child(5) {
+    background-image: var(--star5);
+}

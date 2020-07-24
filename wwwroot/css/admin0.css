@@ -1,0 +1,190 @@
+﻿/* general */
+.oreo-save-data {
+    grid-column: 1;
+    grid-row: 1;
+
+    border: 2px solid #2ba42e;
+    line-height: 1.2;
+}
+
+.oreo-save-data:hover {
+    background-color: #2ba42e;
+    color: white !important;
+}
+
+.oreo-deleta-data {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.oreo-columns {
+    display: grid !important;
+    grid-template-columns: auto auto auto;
+}
+@media (min-width: 1200px) {
+    .oreo-columns {
+        grid-template-columns: auto auto auto;
+    }
+}
+@media (max-width: 1199px) {
+    .oreo-columns {
+        grid-template-columns: auto auto;
+    }
+}
+@media (max-width: 730px) {
+    .oreo-columns {
+        grid-template-columns: auto;
+    }
+}
+
+.oreo-card {
+    display: grid !important;
+    grid-template-columns: auto;
+    grid-template-rows: 100px auto;
+    min-width: 300px;
+    max-width: 360px;
+}
+
+.oreo-edit-pencil {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.oreo-edit-data {
+    display: grid;
+    grid-template-columns: 100px 150px;
+    grid-template-rows: 25px 25px 25px;
+    grid-row-gap: 10px;
+}
+
+.oreo-edit-data span {
+    line-height: 1.2;
+}
+
+.oreo-modify-data {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-rows: 25px 25px;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+}
+
+.oreo-modify-data > div {
+    grid-column: 2;
+    grid-row: 1;
+
+    display: grid;
+    grid-template-columns: 25px;
+    grid-template-rows: 25px;
+}
+
+.oreo-add-data {
+    display: grid !important;
+    grid-template-columns: auto 100px auto;
+    grid-template-rows: auto 25px auto;
+}
+
+.oreo-add-data a {
+    border: 2px solid #2ba42e;
+    line-height: 1.25;
+}
+
+.oreo-add-data a:hover {
+    background-color: #2ba42e;
+    color: white !important;
+}
+
+.oreo-edit-image {
+    display: grid !important;
+    grid-template-columns: 128px auto auto;
+    grid-template-rows: auto;
+}
+
+.oreo-edit-image-a {
+    display: grid;
+    grid-template-columns: auto 100px auto;
+    grid-template-rows: auto 25px auto;
+}
+
+.oreo-edit-image-a a {
+    display: grid;
+    grid-template-columns: 30px 48px auto;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    line-height: 1.2;
+}
+
+.oreo-edit-image-a a:hover {
+    background-color: black;
+    color: white !important;
+}
+
+.oreo-edit-image-status {
+}
+
+/* File Selector */
+.file-selector {
+    display: grid;
+    grid-template-columns: auto 400px auto;
+    grid-template-rows: auto;
+    position: absolute;
+    z-index: 2;
+    background-color: #5d5d5dc2;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.file-selector > div {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px;
+    height: 400px;
+}
+
+.file-selector-ribbon {
+    display: grid;
+    grid-template-columns: 360px auto;
+    grid-template-rows: auto;
+}
+
+.file-selector-ribbon a {
+    color: #b51111 !important;
+}
+
+.file-selector-ribbon a:hover {
+    font-weight: 700;
+    transform: rotateZ(90deg);
+    transition: transform ease-in 0.2s, font-weight ease-in 0.2s;
+}
+
+.file-explorer {
+    border: 1px solid black;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 360px;
+}
+
+.file-explorer > div {
+    grid-template-columns: auto 24px auto;
+    grid-template-rows: auto 24px auto;
+
+    z-index: 2;
+    background-color: #b1b1b1b5;
+    width: 388px;
+    height: 358px;
+    position: absolute;
+}
+
+.file-explorer iframe {
+    width: 100%;
+    height: 100%;
+}

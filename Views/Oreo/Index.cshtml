@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Oreos";
+
+    var _context = (MainDbContext)ViewBag.Context;
+
+    var Oreos = _context.Oreo.ToArray();
+}
+
+<h2>Oreos</h2>
+
+<p>Some of them</p>
+
+<div class="card-columns">
+@foreach (var oreo in Oreos)
+{
+    await Html.RenderPartialAsync("Partial/OreoPartial", oreo);
+}
+</div>

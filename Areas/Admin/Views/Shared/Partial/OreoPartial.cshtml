@@ -1,0 +1,48 @@
+﻿@model Oreo
+
+@{
+    var _context = (MainDbContext)ViewData["context"];
+    var rating = _context.GetRating(Model);
+}
+
+<div id="oreo_@Model.Id" class="card oreo-card">
+    <div id="img_@Model.Id" class="card-img oreo-edit-image">
+        <img src="@(_context.GetImageSource(Model))" />
+
+        <div class="oreo-edit-image-a">
+            <a class="a-hover grid-center" onclick="modifyOreoImage(@Model.Id)">
+                <span class="oreo-edit-pencil">&#9998;</span>
+                <span>Edit</span>
+            </a>
+        </div>
+
+        <div class="oreo-edit-image-status">
+
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="oreo-edit-data">
+            <span>Title:</span>
+            <input id="oreo_title_@Model.Id" type="text" value="@Model.Title" autocomplete="off" />
+
+            <span>Flavour:</span>
+            <input id="oreo_flavour_@Model.Id" type="text" value="@Model.Flavour" autocomplete="off" />
+
+            <span>Layers:</span>
+            <input id="oreo_layers_@Model.Id" type="text" value="@Model.Layers" autocomplete="off" />
+        </div>
+        <div class="oreo-modify-data">
+            <a class="a-hover oreo-save-data" onclick="saveOreo(@Model.Id)">Save</a>
+            @{
+                await Html.RenderPartialAsync(
+                    "Partial/LoadingPartial", 
+                    new Loading 
+                    { 
+                        SuccessText = "Saved", 
+                        ErrorText = "Error" 
+                    });
+            }
+            <a style="display: none;" class="a-hover oreo-delete-data">Delete</a>
+        </div>
+    </div>
+</div>

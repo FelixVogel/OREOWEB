@@ -1,0 +1,6 @@
+﻿@model CSSResourceBundle
+
+@for (int i = 0, l = Model.Resources.Length; i < l; i++)
+{
+    <link rel="stylesheet" href="@Model.Resources[i]" />
+}

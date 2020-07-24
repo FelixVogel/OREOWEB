@@ -1,0 +1,6 @@
+﻿@model JSResourceBundle
+
+@for (int i = 0, l = Model.Resources.Length; i < l; i++)
+{
+    <script src="@Model.Resources[i]"></script>
+}

@@ -1,0 +1,78 @@
+﻿@{
+    var oreo = (Oreo)ViewBag.Oreo;
+    var context = (MainDbContext)ViewBag.Context;
+
+    var currentImage = context.GetImage(oreo);
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/files.css" />
+</head>
+<body>
+    <div class="current-display">
+        <span>Current:</span>
+        <div class="current-display-save">
+            <img data-name="@currentImage.Url" src="@currentImage.GetEffectiveSource()" draggable="false" />
+            <div data-selected style="display: none;">
+                <a class="a-hover grid-center">Save</a>
+                @{
+                    await Html.RenderPartialAsync(
+                        "Partial/LoadingPartial",
+                        new Loading
+                        {
+                            CSSClasses = "grid-center"
+                        });
+                }
+            </div>
+        </div>
+    </div>
+    <div class="upload-preview">
+        <div class="upload">
+            <span>Upload</span>
+            <div>
+                <input id="upload_img" type="file" accept="jpg, jpeg, png" />
+            </div>
+            <div class="upload-a">
+                <div>
+                    <a class="a-hover">Submit</a>
+                    @{
+                        await Html.RenderPartialAsync("Partial/LoadingPartial", new Loading { });
+                    }
+                </div>
+            </div>
+        </div>
+        <div>
+            <img id="upload_preview" style="display: none;" src="" />
+        </div>
+    </div>
+    <div>
+        <span>Available</span>
+        <div>
+            <label for="available_filter">Search</label>
+            <input id="available_filter" type="text" autocomplete="off" />
+        </div>
+        <div class="selection-available">
+            @{
+                var images = context.Image.ToArray();
+
+                for (int i = 0, l = images.Length; i < l; i++)
+                {
+                    var nimage = images[i];
+                    <div id="image_@nimage.Id" data-name="@nimage.Url" onclick="selectImage(@nimage.Id)" style="display: grid;" class="selection-image">
+                        <img src="@nimage.GetEffectiveSource()" draggable="false" />
+                        <span>@nimage.Url</span>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/files.js"></script>
+</body>
+</html>

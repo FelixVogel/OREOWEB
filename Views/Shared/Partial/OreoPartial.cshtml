@@ -1,0 +1,40 @@
+﻿@model Oreo
+
+<div id="@Model.Id" class="card">
+    @{
+        var _context = (Vogel.Data.MainDbContext)ViewData["context"];
+        var rating = _context.GetRating(Model);
+    }
+    <div id="img_@Model.Id" class="card-img"><img src="@(_context.GetImageSource(Model))" /></div>
+    <div class="card-body">
+        <div>
+            <h5 id="title_@Model.Id" class="card-title">@Model.Title</h5>
+        </div>
+        <div class="card-text">
+            <div>
+                Flavour: <span id="flavour_@Model.Id">@Model.Flavour</span> <br />
+                Layers: <span id="layers_@Model.Id">@Model.Layers</span>
+            </div>
+            <div class="oreo-rating">
+                Rating: <br />
+                <div id="rating_@Model.Id" class="oreo-rating-stars">
+                    <container class="oreo-rating-stars-static">
+                        <span active="@(rating >= 1 ? "true" : "false")">1</span>
+                        <span active="@(rating >= 2 ? "true" : "false")">2</span>
+                        <span active="@(rating >= 3 ? "true" : "false")">3</span>
+                        <span active="@(rating >= 4 ? "true" : "false")">4</span>
+                        <span active="@(rating >= 5 ? "true" : "false")">5</span>
+                    </container>
+                    <container class="oreo-rating-stars-dynamic">
+                        <span active="false">1</span>
+                        <span active="false">2</span>
+                        <span active="false">3</span>
+                        <span active="false">4</span>
+                        <span active="false">5</span>
+                    </container>
+                    <span id="rating_score_@Model.Id">(@(rating))</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
